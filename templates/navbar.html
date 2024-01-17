@@ -1,0 +1,77 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <i class="navbar-brand-icon bi-book me-2"></i>
+            <span>Donate</span>
+        </a>
+        {% if request.user.is_authenticated %}
+        <i class="bi bi-coin gold-coin">{{ request.user.account.coin_balance }}</i>
+        
+        <div class="text-white my-auto font-black px-5"> (balance : {{ request.user.account.balance }})</div>
+        {% endif %}
+
+        <div class="d-lg-none ms-auto me-3">
+            <a href="#" class="btn custom-btn custom-border-btn btn-naira btn-inverted">
+                {% comment %} <i class="btn-icon bi-cloud-download"></i> {% endcomment %}
+                {% comment %} <span>Download</span><!-- duplicated another one below for mobile --> {% endcomment %}
+            </a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-lg-auto me-lg-4">
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{% url 'home' %}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'book_list' %}"> Book List</a>
+                </li>
+                {% if request.user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'deposit_money' %}">Deposit</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'my_book' %}">Your Book List</a>
+                </li>
+                {% endif %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'platform_comments' %}">Review</a>
+                </li>
+                {% if request.user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'profile' %}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'register' %}">Register</a>
+                </li>
+                {% endif %}
+
+            </ul>
+
+        
+                
+              
+
+            
+        </div>
+    </div>
+</nav>
+
+

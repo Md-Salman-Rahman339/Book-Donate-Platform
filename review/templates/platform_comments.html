@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1>Platform Comments</h1>
+
+    <div class="comments"  style="color: black;">
+        {% for comment in comments %}
+            <div class="comment"  style="color: black;">
+                <p  style="color: black;">{{ comment.user.username }}</p>
+                <p  style="color: black;">{{ comment.comment }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="comment-form " style="color: black;">
+        <form method="post" action="{% url 'platform_comments' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {{ comment_form | crispy }}
+            <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}
