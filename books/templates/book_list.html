@@ -24,16 +24,21 @@
                             <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ book.title }}</h5>
-                                <p class="card-text">{{ book.description |truncatewords:10 }}</p>
+                                <p class="card-text">{{ book.description |truncatewords:5 }}</p>
 
                                 <p class="card-text"><strong>Price:</strong> {{ book.buying_price }}$</p>
-                                {% for category in book.category.all %}
-                                    <h3 class="bg-warning text-primary">{{ category.Name }}</h3>
-                                {% endfor %}
+                                {% comment %} {% for category in book.category.all %}
+                                    <p class="text-primary">{{ category.Name }}</p>
+                                {% endfor %} {% endcomment %}
+                                <p class="text-primary">
+                                    {% for category in book.category.all %}
+                                        {{ category.Name }}{% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
+                                </p>
 
 
 
-                                <a href="{% url 'details_view' pk=book.id %}" class="btn btn-primary">Details</a>
+                                <a href="{% url 'details_view' pk=book.id %}" class="btn btn-primary text-center">Details</a>
                             </div>
                         </div>
                     </div>

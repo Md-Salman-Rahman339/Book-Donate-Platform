@@ -29,7 +29,7 @@ def redeem_book(request, book_id):
             messages.error(request, "Insufficient funds to redeem the book.")
         return redirect('book_wise_post')
 
-
+@login_required
 def book_view(request):
     data = GiftBook.objects.all()
     redeemed_books = RedeemBook.objects.filter(user=request.user)

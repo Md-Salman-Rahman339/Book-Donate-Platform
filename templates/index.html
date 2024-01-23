@@ -23,6 +23,7 @@
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
         <link href="{% static 'css/templatemo-ebook-landing.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/style10.css' %}">
         
 <!--
 
@@ -38,6 +39,24 @@
     .gifts{
         font-size: 10em;
     }
+    .btn-group.bg-primary .dropdown-menu {
+        background-color: white; 
+    }
+
+    .btn-group.bg-primary .dropdown-menu a {
+        color: #000000; /
+    }
+    .btn-orange {
+        background-color: #FFA500; 
+        color: #FFFFFF; 
+    }
+
+    .btn-orange.dropdown-toggle-split::after {
+        border-top-color: #FFFFFF; 
+    }
+    .text-black {
+        color: #000000; 
+    }
 </style>
     </head>
     
@@ -51,11 +70,7 @@
                         <i class="navbar-brand-icon bi-book me-2"></i>
                         <span>Donate</span>
                     </a>
-                    {% if request.user.is_authenticated %}
-                    <i class="bi bi-coin gold-coin">{{ request.user.account.coin_balance }}</i>
-                    
-                    <div class="text-white my-auto font-black px-5"> (balance : {{ request.user.account.balance }})</div>
-                    {% endif %}
+                   
 
 
                     <div class="d-lg-none ms-auto me-3">
@@ -78,27 +93,12 @@
                             <li class="nav-item">
                                 <a class="nav-link " href="{% url 'book_list' %}"> Book List</a>
                             </li>
-                            {% if request.user.is_authenticated %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'deposit_money' %}">Deposit</a>
-                            </li>
-                            
-
-                            <li class="nav-item">
-                                <a class="nav-link " href="{% url 'my_book' %}">Your Book List</a>
-                            </li>
-                            {% endif %}
-
                             <li class="nav-item">
                                 <a class="nav-link " href="{% url 'platform_comments' %}">Review</a>
                             </li>
                             {% if request.user.is_authenticated %}
-
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                                <a class="nav-link" href="{% url 'deposit_money' %}">Deposit</a>
                             </li>
                             {% else %}
                             <li class="nav-item">
@@ -109,7 +109,46 @@
                             </li>
                             {% endif %}
 
+                           
+                           
+                            
+
                         </ul>
+                        {% if request.user.is_authenticated %}
+                        <div class="btn-group bg-primary">
+                            <button type="button" class="btn btn-orange">Personalization</button>
+                            <button type="button" class="btn btn-orange dropdown-toggle dropdown-toggle-split bg-warning" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu ">
+                                {% if request.user.is_authenticated %}
+                               <li  > <i class="bi bi-coin gold-coin">{{ request.user.account.coin_balance }}</i></li>
+                                
+                               <li class="text-black">
+                                <div class="text-black my-auto font-black px-5">
+                                    (balance: {{ request.user.account.balance }})
+                                </div>
+                            </li>
+                                {% endif %}
+                                
+        
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                                    </li>
+                                
+                                    
+                                    
+        
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="{% url 'my_book' %}">Your Book List</a>
+                                    </li>
+                                
+                            </ul>
+                        </div>
+                        {% endif %}
 
                     
                             
@@ -118,6 +157,7 @@
                         
                     </div>
                 </div>
+                
             </nav>
             
 
@@ -207,7 +247,7 @@
             </section>
 
 
-            <section>
+            {% comment %} <section>
                  <div class="container">
                     <div class="row">
                         <h1>Here are your Gifts</h1>
@@ -216,35 +256,37 @@
 
                     </div>
                 </div> 
+            </section> {% endcomment %}
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <h1>Here are your Gifts</h1>
+                        
+                        <p>Welcome to our exclusive Gift Redemption section! We're excited to share tokens of appreciation with you. To redeem your special gift, simply follow the steps below:</p>
+            
+                        <ol>
+                            <li>Click on the enticing gift icon below.</li>
+                            <li>You will be directed to our dedicated gift redemption page.</li>
+                            <li>Choose your preferred gift from the available options.</li>
+                            <li>Complete the required fields to personalize your gift.</li>
+                            <li>Confirm your selection and proceed to the final step.</li>
+                            <li>Voila! Your chosen gift is now on its way to becoming yours.</li>
+                        </ol>
+            
+                        <a href="{% url 'book_wise_post' %}"><i class="bi bi-gift gifts"></i></a>
+            
+                        <p>Thank you for being a valued member of our community. We hope you enjoy your gift, and if you have any questions or need assistance, feel free to contact our support team.</p>
+                    </div>
+                </div>
             </section>
+            
 
 
-<section class="author-section section-padding">
+{% comment %} <section class="author-section section-padding">
     <div class="container">
         <div class="row">
-            {% comment %} <div class="card m-2">
-                <h5 class="p-3">Total Comments: {{ comments | length }}</h5>
-                {% for c in comments %}
-                    <div class="card-body border m-2">
-                        <p>{{ c.user.username }}</p>
-                        <p>{{ c.comment }}</p>
-                    </div>
-                {% endfor %}
-            </div>
-
-            <div class="card m-2">
-                <div class="card-body">
-                    <form method="post" action="{% url 'details_view' pk=book.id %}">
-                        <h1>Add Comment</h1>
-                        {% csrf_token %}
-                        {{ comment_form.as_p }} {# Render the form fields #}
-                        <button type="submit" class="btn btn-warning">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> {% endcomment %}
-</section>
+            
+</section> {% endcomment %}
 
 
 
@@ -344,6 +386,112 @@
                 </div>
             </section>
         </main>
+
+
+        <footer class="footer-section">
+            <div class="container">
+                <div class="footer-cta pt-5 pb-5">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-4 mb-30">
+                            <div class="single-cta">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="cta-text">
+                                    <h4>Find us</h4>
+                                    <span>100 fit madani Avenue,Badda,Dhaka</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-4 mb-30">
+                            <div class="single-cta">
+                                <i class="fas fa-phone"></i>
+                                <div class="cta-text">
+                                    <h4>Call us</h4>
+                                    <span>+8801709134653</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-4 mb-30">
+                            <div class="single-cta">
+                                <i class="far fa-envelope-open"></i>
+                                <div class="cta-text">
+                                    <h4>Mail us</h4>
+                                    <span>salmanrahman339@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-content pt-5 pb-5">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 mb-50">
+                            <div class="footer-widget">
+                                
+                                <div class="footer-text">
+                                    <p>we believe in the transformative power of books. Our mission is to make knowledge accessible to all by connecting book donors with eager readers. Join us in fostering a love for reading and learning by donating your gently-used books today.</p>
+                                </div>
+                
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                            <div class="footer-widget">
+                                <div class="footer-widget-heading">
+                                    <h3>Useful Links</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                   
+                                    
+                                    <li><a href="#">portfolio</a></li>
+                                    <li><a href="#">About us</a></li>
+                                    <li><a href="#">Our Services</a></li>
+                                    
+                                    <li><a href="#">Contact us</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                            <div class="footer-widget">
+                                <div class="footer-widget-heading">
+                                    <h3>Subscribe</h3>
+                                </div>
+                                <div class="footer-text mb-25">
+                                    <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                                </div>
+                                <div class="subscribe-form">
+                                    <form action="#">
+                                        <input type="text" placeholder="Email Address">
+                                        <button><i class="fab fa-telegram-plane"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                            <div class="copyright-text">
+                                <p>Copyright &copy; 2024, All Right Reserved Md.Salman Rahman Nayeem</a></p>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                            <div class="footer-menu">
+                                <ul>
+                                    <li><a href="{% url 'home' %}">Home</a></li>
+                                    <li><a href="#">Terms</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                    <li><a href="#">Policy</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         <!-- JAVASCRIPT FILES -->
         <script src="{% static 'js/jquery.min.js' %}"></script>

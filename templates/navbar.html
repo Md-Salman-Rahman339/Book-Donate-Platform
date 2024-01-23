@@ -2,16 +2,10 @@
 
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{% url 'home' %}">
             <i class="navbar-brand-icon bi-book me-2"></i>
             <span>Donate</span>
         </a>
-        {% if request.user.is_authenticated %}
-        <i class="bi bi-coin gold-coin">{{ request.user.account.coin_balance }}</i>
-        
-        <div class="text-white my-auto font-black px-5"> (balance : {{ request.user.account.balance }})</div>
-        {% endif %}
-
         <div class="d-lg-none ms-auto me-3">
             <a href="#" class="btn custom-btn custom-border-btn btn-naira btn-inverted">
                 {% comment %} <i class="btn-icon bi-cloud-download"></i> {% endcomment %}
@@ -34,26 +28,19 @@
                 </li>
                 {% if request.user.is_authenticated %}
 
-                <li class="nav-item">
-                    <a class="nav-link " href="{% url 'deposit_money' %}">Deposit</a>
-                </li>
+                
 
-                <li class="nav-item">
-                    <a class="nav-link " href="{% url 'my_book' %}">Your Book List</a>
-                </li>
+               
                 {% endif %}
 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'platform_comments' %}">Review</a>
                 </li>
                 {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'deposit_money' %}">Deposit</a>
+                </li>
 
-                <li class="nav-item">
-                    <a class="nav-link " href="{% url 'profile' %}">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{% url 'logout' %}">Logout</a>
-                </li>
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link " href="{% url 'login' %}">Login</a>
@@ -64,6 +51,41 @@
                 {% endif %}
 
             </ul>
+            {% if request.user.is_authenticated %}
+                        <div class="btn-group bg-primary">
+                            <button type="button" class="btn btn-warning">Personalization</button>
+                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split bg-warning" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu ">
+                                {% if request.user.is_authenticated %}
+                               <li class="text-black"> <i class="bi bi-coin gold-coin">{{ request.user.account.coin_balance }}</i></li>
+                                
+                               <li class="text-black">
+                                <div class="text-black my-auto font-black px-5">
+                                    (balance: {{ request.user.account.balance }})
+                                </div>
+                            </li>
+                                {% endif %}
+                                
+        
+                                    <li class="nav-item text-black">
+                                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                                    </li>
+                                    <li class="nav-item text-black">
+                                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                                    </li>
+                                
+                                    
+                                    
+        
+                                    <li class="nav-item text-black">
+                                        <a class="nav-link " href="{% url 'my_book' %}">Your Book List</a>
+                                    </li>
+                                
+                            </ul>
+                        </div>
+                        {% endif %}
 
         
                 

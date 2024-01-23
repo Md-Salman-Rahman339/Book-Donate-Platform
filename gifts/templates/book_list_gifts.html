@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-{% block content %}
 
+{% block content %}
+{% if request.user.is_authenticated %}
 <div class="container mt-4">
     <h2>Book List</h2>
         </div>
@@ -38,5 +39,5 @@
         <li style="color: black;">{{ redeemed_book.book.title }} - Redeemed on {{ redeemed_book.date }}</li>
     {% endfor %}
 </ul>
-
+{% endif %}
 {% endblock content %}

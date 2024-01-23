@@ -13,9 +13,12 @@
         <p class=""><span class="text-secondary">Price: </span>{{ book.buying_price }}$</p>
         <p class='text-secondary'>Description:</p>
         <p class='mx-4'>{{ book.description }}</p>
-        {% for category in book.category.all %}
-        <h3 class="bg-warning text-primary">{{ category.Name }}</h3>
-        {% endfor %}
+        <p class="text-primary">
+            {% for category in book.category.all %}
+                {{ category.Name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        
 
         
         {% if request.user.is_authenticated %}
