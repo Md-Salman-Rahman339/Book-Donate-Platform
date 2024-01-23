@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8_4-19yt&qmb%!15+t^798oo7__62s$2n58vv-$okif$q!!l_('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = ['https://book-donate-platform.onrender.com','https://*.127.0.0.1']
 
