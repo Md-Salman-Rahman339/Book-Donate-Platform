@@ -4,3 +4,9 @@ from django.views.generic import TemplateView
 
 class HomeView(TemplateView):
     template_name = 'index.html'
+
+def about_view(request):
+    return render(request, 'about.html')
+
+def contact(request):
+    return render(request, 'contact.html')
