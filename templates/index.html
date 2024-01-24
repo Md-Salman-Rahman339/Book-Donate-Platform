@@ -89,20 +89,23 @@
                             <li class="nav-item">
                                 <a class="nav-link " href="{% url 'home' %}">Home</a>
                             </li>
+                            
+    
+                            <li class="nav-item">
+                                <a class="nav-link " href="{% url 'book_list' %}"> Book List</a>
+                            </li>
+                            
+
                             <li class="nav-item">
                                 <a class="nav-link " href="{% url 'about' %}">About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link l" href="{% url 'contactus' %}">Contact</a>
                             </li>
-    
-                            <li class="nav-item">
-                                <a class="nav-link " href="{% url 'book_list' %}"> Book List</a>
-                            </li>
+                            {% if request.user.is_authenticated %}
                             <li class="nav-item">
                                 <a class="nav-link " href="{% url 'platform_comments' %}">Review</a>
                             </li>
-                            {% if request.user.is_authenticated %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'deposit_money' %}">Deposit</a>
                             </li>

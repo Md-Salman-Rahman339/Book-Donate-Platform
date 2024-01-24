@@ -2,14 +2,16 @@
 
 {% block content %}
     <style>
-        .h1c{
+        .h1c {
             color: white;
         }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            border-radius: 15px;
         }
 
         header {
@@ -24,23 +26,25 @@
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(15, 15, 15, 0.1);
+            border-radius: 15px;
         }
 
         h1 {
             color: #333;
+            border-radius: 15px;
         }
 
         p {
             line-height: 1.6;
             color: #555;
+            border-radius: 15px;
         }
 
         .mission {
             background-color: #f9f9f9;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 15px;
         }
 
         footer {
@@ -52,41 +56,48 @@
             bottom: 0;
             width: 100%;
         }
+
+      
+        @media only screen and (max-width: 600px) {
+            section {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
     </style>
 
+    <body>
 
-<body>
+        <header>
+            <h1 class="h1c">Book Donate</h1>
+        </header>
 
-    <header>
-        <h1 class="h1c">Book Donate</h1>
-    </header>
+        <section>
+            <h1>About Us</h1>
+            <p>Welcome to Book Donate, where we believe in the power of books to change lives. Our mission is to make books
+                accessible to everyone, fostering a love for reading and learning in communities around the world.</p>
 
-    <section>
-        <h1>About Us</h1>
-        <p>Welcome to Book Donate, where we believe in the power of books to change lives. Our mission is to make books
-            accessible to everyone, fostering a love for reading and learning in communities around the world.</p>
+            <div class="mission">
+                <h2>Our Mission</h2>
+                <p>We strive to promote literacy and education by collecting and distributing books to those in need.
+                    Whether it's through local schools, libraries, or community centers, we aim to create opportunities
+                    for people to explore the wonders of literature.</p>
+            </div>
 
-        <div class="mission">
-            <h2>Our Mission</h2>
-            <p>We strive to promote literacy and education by collecting and distributing books to those in need.
-                Whether it's through local schools, libraries, or community centers, we aim to create opportunities for
-                people to explore the wonders of literature.</p>
-        </div>
+            <h2>Why Donate?</h2>
+            <p>Donating books not only provides individuals with the chance to experience the joy of reading, but it also
+                contributes to building a more educated and informed society. Your contribution can make a significant
+                impact on someone's life.</p>
 
-        <h2>Why Donate?</h2>
-        <p>Donating books not only provides individuals with the chance to experience the joy of reading, but it also
-            contributes to building a more educated and informed society. Your contribution can make a significant
-            impact on someone's life.</p>
+            <h2>Get Involved</h2>
+            <p>If you share our passion for books and literacy, consider joining us in our mission. You can contribute by
+                donating books, volunteering your time, or supporting us financially. Together, we can make a difference
+                in the lives of many.</p>
+        </section>
 
-        <h2>Get Involved</h2>
-        <p>If you share our passion for books and literacy, consider joining us in our mission. You can contribute by
-            donating books, volunteering your time, or supporting us financially. Together, we can make a difference in
-            the lives of many.</p>
-    </section>
+        <footer>
+            &copy; 2024 Book Donate | All rights reserved
+        </footer>
 
-    <footer>
-        &copy; 2024 Book Donate | All rights reserved
-    </footer>
-
-</body>
+    </body>
 {% endblock content %}
