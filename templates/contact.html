@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="background-color: gray" class="text-center py-5">
-  <h1 style="color: white"  class="fw-bold">Contact Us</h1>
+<div style="background-color: #F0FFFF;border-radius: 25px;" class="text-center py-5">
+  <h1 style="color: orange"  class="fw-lighter" >Contact Us</h1>
 </div>
 <div class="container my-5">
   <div class="row">
     <div class="col-md-5 d-flex flex-column gap-4">
       <h5 class="text-primary">Get in touch</h5>
-      <h1>Any problems?</h1>
+      <h1 class="fw-lighter text-yellow-100">Any problems?</h1>
       <div class="card">
         <div class="card-body d-flex align-items-center gap-4">
           <svg
@@ -27,12 +27,12 @@
             />
           </svg>
           <div>
-            <h4>Address</h4>
-            <h6>Dhaka,Bangladesh</h6>
+            <h4 class="fw-lighter">Address</h4>
+            <h6 class="fw-lighter">Dhaka,Bangladesh</h6>
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card fw-lighter">
         <div class="card-body d-flex align-items-center gap-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -47,13 +47,13 @@
             />
           </svg>
           <div>
-            <h4>Phone Number</h4>
+            <h4 class="fw-lighter">Phone Number</h4>
             <h6>+8801709134653</h6>
           </div>
         </div>
       </div>
-      <div class="card" >
-        <div class="card-body d-flex align-items-center gap-4">
+      <div class="card fw-lighter" >
+        <div class="card-body d-flex align-items-center gap-4 fw-lighter">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="35"
@@ -67,17 +67,17 @@
             />
           </svg>
           <div>
-            <h4>Email Address</h4>
-            <h6>sr256@gmail.com</h6>
+            <h4 class="fw-lighter">Email Address</h4>
+            <h6 class="fw-lighter">sr256@gmail.com</h6>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-7 rounded p-4" style="background-color: gray;">
-      <div class="row">
+    <div class="col-md-7 rounded p-4" style="background-color:#F0FFFF; ">
+      <div class="row" style="border-radius: 30px;">
         <div class="col-md-6">
-          <div class="mb-4">
-            <label for="exampleFormControlInput1" class="form-label"
+          <div class="mb-4 " style="color: orange;">
+            <label for="exampleFormControlInput1" class="form-label" style="color: orange;"
               >Name</label
             >
             <input
@@ -85,13 +85,15 @@
               class="form-control"
               id="exampleFormControlInput1"
               placeholder="Enter Your Name"
+              style="color: orange;"
             />
           </div>
           <div class="mb-4">
             <label for="exampleFormControlInput1" class="form-label"
-              >Email address</label
+            style="color: orange;" >Email address</label
             >
             <input
+            style="color: orange;"
               type="email"
               class="form-control"
               id="exampleFormControlInput1"
@@ -101,10 +103,11 @@
         </div>
         <div class="col-md-6">
           <div class="mb-4">
-            <label for="exampleFormControlInput1" class="form-label"
+            <label for="exampleFormControlInput1" class="form-label" style="color: orange;"
               >Phone Number</label
             >
             <input
+            style="color: orange;"
               type="Number"
               class="form-control"
               id="exampleFormControlInput1"
@@ -112,7 +115,7 @@
             />
           </div>
           <div class="mb-4">
-            <label for="exampleFormControlInput1" class="form-label"
+            <label for="exampleFormControlInput1" class="form-label" style="color: orange;"
               ></label
             >
             {% comment %} <input
@@ -125,7 +128,7 @@
         </div>
       </div>
       <div class="mb-5">
-        <label for="exampleFormControlTextarea1" class="form-label"
+        <label for="exampleFormControlTextarea1" class="form-label" style="color: orange;"
           >Write your problems</label
         >
         <textarea

@@ -92,7 +92,10 @@
                             
     
                             <li class="nav-item">
-                                <a class="nav-link " href="{% url 'book_list' %}"> Book List</a>
+                                <a class="nav-link " href="{% url 'book_list' %}"> BookList</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="{% url 'platform_comments' %}">Review</a>
                             </li>
                             
 
@@ -103,9 +106,7 @@
                                 <a class="nav-link l" href="{% url 'contactus' %}">Contact</a>
                             </li>
                             {% if request.user.is_authenticated %}
-                            <li class="nav-item">
-                                <a class="nav-link " href="{% url 'platform_comments' %}">Review</a>
-                            </li>
+                           
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'deposit_money' %}">Deposit</a>
                             </li>
@@ -245,9 +246,9 @@
 
                                 <h2 class="mb-4">About The Book</h2>
 
-                                <p>Credit goes to <a rel="nofollow" href="https://freepik.com" target="_blank">FreePik</a> for images used in this ebook landing page template. You may browse FreePik to download more free images for your website.</p>
+                                <p>Credit goes to <a rel="nofollow" href="https://freepik.com" target="_blank">FreePik</a> we believe in the transformative power of books. Our mission is to make knowledge accessible to all by connecting book donors with eager readers. Join us in fostering a love for reading and learning by donating your gently-used books today</p>
 
-                                <p>TemplateMo is one of the best websites to download free CSS templates for any purpose. This is an ebook landing page template using Bootstrap 5 CSS layout.</p>
+                                <p>we believe in the transformative power of books. Our mission is to make knowledge accessible to all by connecting book donors with eager readers. Join us in fostering a love for reading and learning by donating your gently-used books today</p>
                             </div>
                         </div>
 
@@ -269,11 +270,11 @@
             <section>
                 <div class="container">
                     <div class="row">
-                        <h1>Here are your Gifts</h1>
+                        <h1 class="text-success">Here are your Gifts</h1>
                         
-                        <p>Welcome to our exclusive Gift Redemption section! We're excited to share tokens of appreciation with you. To redeem your special gift, simply follow the steps below:</p>
+                        <p class="text-primary">Welcome to our exclusive Gift Redemption section! We're excited to share tokens of appreciation with you. To redeem your special gift, simply follow the steps below:</p>
             
-                        <ol>
+                        <ol class="text-info">
                             <li>Click on the enticing gift icon below.</li>
                             <li>You will be directed to our dedicated gift redemption page.</li>
                             <li>Choose your preferred gift from the available options.</li>
@@ -284,19 +285,64 @@
             
                         <a href="{% url 'book_wise_post' %}"><i class="bi bi-gift gifts"></i></a>
             
-                        <p>Thank you for being a valued member of our community. We hope you enjoy your gift, and if you have any questions or need assistance, feel free to contact our support team.</p>
-                        <h1>Note:only Login User can redeem books</h1>
+                        <p class="text-primary">Thank you for being a valued member of our community. We hope you enjoy your gift, and if you have any questions or need assistance, feel free to contact our support team.</p>
+                        <h1 class="text-danger">Note:only Login User can redeem books</h1>
                     </div>
                 </div>
             </section>
             
 
 
-{% comment %} <section class="author-section section-padding">
-    <div class="container">
-        <div class="row">
+<section class="author-section section-padding">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4 text-blue-600">Share the Love</h2>
+    
+        <div class="row bg-gray-500" style="border-radius: 15px;">
+          <div class="col-md-6">
+            <h5>1. Connect on Social Media:</h5>
+            <p class="text-yellow-100">Follow us on <a href="[Your Facebook Link]" target="_blank">Facebook</a>, <a href="[Your Twitter Link]" target="_blank">Twitter</a>, and <a href="[Your Instagram Link]" target="_blank">Instagram</a> to stay updated on our latest initiatives and success stories. Share your own book donation experiences and encourage your friends to get involved.</p>
+          </div>
+    
+          <div class="col-md-6">
+            <h5>2. Spread the Word:</h5>
+            <p class="text-yellow-100">Use our official hashtags <strong>#YourOrganizationHashtag</strong> and <strong>#BookLoveCampaign</strong> to share your support. Your social media posts can inspire others to join the movement.</p>
+          </div>
+        </div>
+    
+        <div class="row mt-4 bg-orange-300 " style="border-radius: 14px;">
+          <div class="col-md-6">
+            <h5>3. Host a Mini-Drive:</h5>
+            <p class="text-yellow-100">Organize a small book donation drive in your neighborhood, workplace, or school. We can provide support materials and guidance to make it a success.</p>
+          </div>
+    
+          <div class="col-md-6 text-bg-info  " style="border-radius: 10px;">
+            <h5>4. Tell Your Story:</h5>
+            <p class="text-yellow-100" >Share why you believe in the power of books and why you chose to donate. Your personal story can inspire others to take action.</p>
+          </div>
+        </div>
+    
+        <div class="row mt-4  bg-teal-300" style="border-radius: 15px;">
+          <div class="col-md-6">
+            <h5>5. Become a Book Ambassador:</h5>
+            <p class="text-white fw-lighter">Join our Book Ambassador program and help us amplify our message. As an ambassador, you'll receive exclusive updates, resources, and the opportunity to connect with like-minded individuals.</p>
+          </div>
+    
+          <div class="col-md-6 bg-green-300" style="border-radius: 15px;">
+            <h5>6. Collaborate with Us:</h5>
+            <p>Partner with us for community events, workshops, or book clubs. Together, we can create a positive impact and promote a culture of reading.</p>
+          </div>
+        </div>
+    
+        <p class="mt-4 text-center text-green-600">Remember, every share, post, and conversation about book donation brings us closer to a more literate and connected world. Thank you for being an advocate for literacy and the joy of reading!</p>
+    
+        <div class="text-center mt-4">
+          <a href="" class="btn btn-primary mx-2" target="_blank">Follow Us</a>
+          <a href="" class="btn btn-success mx-2" target="_blank">Become an Ambassador</a>
+          <a href="" class="btn btn-info mx-2" target="_blank">Host a Drive</a>
+        </div>
+      </div>
             
-</section> {% endcomment %}
+</section> 
 
 
 
