@@ -125,40 +125,33 @@
 
                         </ul>
                         {% if request.user.is_authenticated %}
-                        <div class="btn-group bg-primary">
-                            <button type="button" class="btn btn-orange">Personalization</button>
-                            <button type="button" class="btn btn-orange dropdown-toggle dropdown-toggle-split bg-warning" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
+                        <div class="btn-group" style="background-color: #007bff;">
+                            <button type="button" class="btn btn-warning">Personalization</button>
+                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
-                            <ul class="dropdown-menu ">
+                            <ul class="dropdown-menu">
                                 {% if request.user.is_authenticated %}
-                               <li  > <i class="bi bi-coin gold-coin">{{ request.user.account.coin_balance }}</i></li>
-                                
-                               <li class="text-black">
-                                <div class="text-black my-auto font-black px-5">
-                                    (balance: {{ request.user.account.balance }})
-                                </div>
-                            </li>
+                                <li><i class="bi bi-coin" style="color: gold;">{{ request.user.account.coin_balance }}</i></li>
+                                <li>
+                                    <div style="color: black; font-weight: bold; padding: 20px;">
+                                        (balance: {{ request.user.account.balance }})
+                                    </div>
+                                </li>
                                 {% endif %}
-                                
-        
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                                    </li>
-                                
-                                    
-                                    
-        
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="{% url 'my_book' %}">Your Book List</a>
-                                    </li>
-                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'my_book' %}">Your Book List</a>
+                                </li>
                             </ul>
                         </div>
                         {% endif %}
+                        }
 
                     
                             
