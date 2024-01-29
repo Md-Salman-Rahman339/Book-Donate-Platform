@@ -151,7 +151,7 @@
                             </ul>
                         </div>
                         {% endif %}
-                        }
+                        
 
                     
                             
@@ -263,34 +263,41 @@
             <section>
                 <div class="container">
                     <div class="row">
-                        <h1 class="text-success">Here are your Gifts</h1>
-                        
-                        <p class="text-primary">Welcome to our exclusive Gift Redemption section! We're excited to share tokens of appreciation with you. To redeem your special gift, simply follow the steps below:</p>
+                        <div class="col-md-8">
+                            <!-- Left column for content -->
+                            <h1 class="text-success">Here are your Gifts</h1>
+                            
+                            <p class="text-primary">Welcome to our exclusive Gift Redemption section! We're excited to share tokens of appreciation with you. To redeem your special gift, simply follow the steps below:</p>
+                            
+                            <ol class="text-info">
+                                <li>Click on the enticing gift icon below.</li>
+                                <li>You will be directed to our dedicated gift redemption page.</li>
+                                <li>Choose your preferred gift from the available options.</li>
+                                <li>Complete the required fields to personalize your gift.</li>
+                                <li>Confirm your selection and proceed to the final step.</li>
+                                <li>Voila! Your chosen gift is now on its way to becoming yours.</li>
+                            </ol>
+                            <div class="d-flex flex-column flex-md-row align-items-md-center gap-56">
+                                <a href="{% url 'book_wise_post' %}" class="text-center">
+                                    <i class="bi bi-gift gifts" style="height: 150px;"></i>
+                                </a>
+                                
+                                <img src="/static/images/gift.webp" alt="Additional Content Image" style="border-radius: 20px; width: 100%; max-width: 400px; height: auto; margin-top: 20px;">
+                            </div>
+                        </div>
             
-                        <ol class="text-info">
-                            <li>Click on the enticing gift icon below.</li>
-                            <li>You will be directed to our dedicated gift redemption page.</li>
-                            <li>Choose your preferred gift from the available options.</li>
-                            <li>Complete the required fields to personalize your gift.</li>
-                            <li>Confirm your selection and proceed to the final step.</li>
-                            <li>Voila! Your chosen gift is now on its way to becoming yours.</li>
-                        </ol>
-            
-                        <a href="{% url 'book_wise_post' %}"><i class="bi bi-gift gifts"></i></a>
-            
-                        <p class="text-primary">Thank you for being a valued member of our community. We hope you enjoy your gift, and if you have any questions or need assistance, feel free to contact our support team.</p>
-                        <h1 class="text-danger">Note:only Login User can redeem books</h1>
+                       
                     </div>
                 </div>
             </section>
             
+            
 
-
-<section class="author-section section-padding">
-    <div class="container mt-5">
+{% comment %} <section class="author-section section-padding">
+    <div class="container mt-5 ">
         <h2 class="text-center mb-4 text-blue-600">Share the Love</h2>
     
-        <div class="row bg-gray-500" style="border-radius: 15px;">
+        <div class="row bg-gray-500 g" style="border-radius: 15px;">
           <div class="col-md-6">
             <h5>1. Connect on Social Media:</h5>
             <p class="text-yellow-100">Follow us on <a href="[Your Facebook Link]" target="_blank">Facebook</a>, <a href="[Your Twitter Link]" target="_blank">Twitter</a>, and <a href="[Your Instagram Link]" target="_blank">Instagram</a> to stay updated on our latest initiatives and success stories. Share your own book donation experiences and encourage your friends to get involved.</p>
@@ -337,7 +344,7 @@
             
 </section> 
 
-
+ {% endcomment %}
 
 
 
